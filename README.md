@@ -4,7 +4,7 @@ Rewrite `init.vim` from [ArmandXiao/vim](https://github.com/ArmandXiao/vim) to `
 
 ## Quick installation
 ```
-git clone https://github.com/ArmandXiao/nvim-lua ~/.config/
+git clone https://github.com/ArmandXiao/nvim-lua.git ~/.config/nvim
 ```
 
 ## Structure
