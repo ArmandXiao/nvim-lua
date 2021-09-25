@@ -69,6 +69,10 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["any-jump.vim"] = {
+    loaded = true,
+    path = "/home/lingao/.local/share/nvim/site/pack/packer/start/any-jump.vim"
+  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/home/lingao/.local/share/nvim/site/pack/packer/start/bufferline.nvim"
@@ -80,6 +84,18 @@ _G.packer_plugins = {
   nerdtree = {
     loaded = true,
     path = "/home/lingao/.local/share/nvim/site/pack/packer/start/nerdtree"
+  },
+  ["nvim-compe"] = {
+    loaded = true,
+    path = "/home/lingao/.local/share/nvim/site/pack/packer/start/nvim-compe"
+  },
+  ["nvim-jdtls"] = {
+    loaded = true,
+    path = "/home/lingao/.local/share/nvim/site/pack/packer/start/nvim-jdtls"
+  },
+  ["nvim-lspconfig"] = {
+    loaded = true,
+    path = "/home/lingao/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
@@ -116,6 +132,10 @@ _G.packer_plugins = {
   ["vim-surround"] = {
     loaded = true,
     path = "/home/lingao/.local/share/nvim/site/pack/packer/start/vim-surround"
+  },
+  ["vim-vsnip"] = {
+    loaded = true,
+    path = "/home/lingao/.local/share/nvim/site/pack/packer/start/vim-vsnip"
   },
   ["wildfire.vim"] = {
     loaded = true,

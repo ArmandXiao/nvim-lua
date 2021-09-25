@@ -33,6 +33,11 @@ require('packer').startup(function()
 
   use 'junegunn/vim-peekaboo' -- check buffers
 
+  use {
+    -- requires package ripgrep 11.0.0+ or ag
+    'pechorin/any-jump.vim'
+  }
+
   -- ** Files ** --
   use 'preservim/nerdtree'
 
@@ -41,7 +46,16 @@ require('packer').startup(function()
     requires = { {'nvim-lua/plenary.nvim'} }
   }
 
-  
+  -- ** LSP ** --
+  use 'neovim/nvim-lspconfig'
+  use {
+    'hrsh7th/nvim-compe',
+    requires = 'hrsh7th/vim-vsnip'
+
+  }
+
+  use 'mfussenegger/nvim-jdtls' -- java lsp
+
 
 end)
 
@@ -68,9 +82,16 @@ keymap('n', '?', ':call nerdcommenter#Comment(0, "toggle")<CR>', { silent = true
 keymap('v', '?', ':call nerdcommenter#Comment(0, "toggle")<CR>', { silent = true })
 
 -- * NerdTree * --
-keymap('n', '<leader>f', ":NERDTreeToggle<CR>", { silent = true})
+keymap('n', '<leader>f', ":NERDTreeToggle<CR>", { noremap = true, silent = true })
 
 -- * Telescope * --
 keymap('n', '<leader><leader>f', "<cmd>lua require('telescope.builtin').find_files()<cr>", { silent = true })
 keymap('n', '<leader><leader>g', "<cmd>lua require('telescope.builtin').live_grep()<cr>", { silent = true })
 keymap('n', '<leader><leader>b', "<cmd>lua require('telescope.builtin').buffers()<cr>", { silent = true })
+
+-- * Any-Jump * --
+keymap('n', '<leader>j', ":AnyJump<CR>", { noremap = true, silent = true })
+
+-- * LSP config * --
+require('lsp.lsp-config')
+require('lsp.compe-config')

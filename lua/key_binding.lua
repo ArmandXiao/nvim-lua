@@ -27,8 +27,8 @@ keymap('n', '<C-q>', ':q<CR>', {}) -- exit
 keymap('n', '<S-q>', ':q<CR>', {})
 
 -- ** Indentation ** --
-keymap('n', '<', '<<', {noremap = true})
-keymap('n', '>', '>>', {noremap = true})
+--keymap('n', '<', '<<', {noremap = true})
+--keymap('n', '>', '>>', {noremap = true})
 
 -- ** Functions ** --
 keymap('n', '<C-a>', ':ggVG', {noremap = true}) -- set Ctrl+a as select all
