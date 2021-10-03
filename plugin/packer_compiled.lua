@@ -97,6 +97,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/lingao/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
   },
+  ["nvim-lspinstall"] = {
+    loaded = true,
+    path = "/home/lingao/.local/share/nvim/site/pack/packer/start/nvim-lspinstall"
+  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/home/lingao/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
@@ -112,6 +116,10 @@ _G.packer_plugins = {
   ["plenary.nvim"] = {
     loaded = true,
     path = "/home/lingao/.local/share/nvim/site/pack/packer/start/plenary.nvim"
+  },
+  ["telescope-fzy-native.nvim"] = {
+    loaded = true,
+    path = "/home/lingao/.local/share/nvim/site/pack/packer/start/telescope-fzy-native.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,

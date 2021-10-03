@@ -46,16 +46,19 @@ require('packer').startup(function()
     requires = { {'nvim-lua/plenary.nvim'} }
   }
 
+  use {'nvim-telescope/telescope-fzy-native.nvim'}  -- fzy, not fzf, be careful
+
   -- ** LSP ** --
   use 'neovim/nvim-lspconfig'
-  use {
+  use 'kabouzeid/nvim-lspinstall'
+
+  use 'mfussenegger/nvim-jdtls' -- java lsp
+
+  use {   -- auto compeletion
     'hrsh7th/nvim-compe',
     requires = 'hrsh7th/vim-vsnip'
 
   }
-
-  use 'mfussenegger/nvim-jdtls' -- java lsp
-
 
 end)
 
@@ -85,13 +88,11 @@ keymap('v', '?', ':call nerdcommenter#Comment(0, "toggle")<CR>', { silent = true
 keymap('n', '<leader>f', ":NERDTreeToggle<CR>", { noremap = true, silent = true })
 
 -- * Telescope * --
-keymap('n', '<leader><leader>f', "<cmd>lua require('telescope.builtin').find_files()<cr>", { silent = true })
-keymap('n', '<leader><leader>g', "<cmd>lua require('telescope.builtin').live_grep()<cr>", { silent = true })
-keymap('n', '<leader><leader>b', "<cmd>lua require('telescope.builtin').buffers()<cr>", { silent = true })
+require('plugin-config.telescope')
 
 -- * Any-Jump * --
 keymap('n', '<leader>j', ":AnyJump<CR>", { noremap = true, silent = true })
 
 -- * LSP config * --
-require('lsp.lsp-config')
+--require('lsp.lsp-config')
 require('lsp.compe-config')

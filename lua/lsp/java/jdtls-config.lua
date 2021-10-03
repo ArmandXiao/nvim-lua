@@ -10,9 +10,11 @@ function M.setup()
 
     local home = os.getenv('HOME')
 
-    local workspace_folder = home .. "/.workspace" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
+    local workspace_folder = home .. "/lsp-cache/.workspace" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
 
-    local config = {}
+    local config = {
+        filetypes = {'java'};
+    }
     -- edit with your own exectuable file, can just simply copy to /usr/bin with no .sh suffix
     config.cmd = {'jdtls-launch', workspace_folder}
 
