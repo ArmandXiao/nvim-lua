@@ -17,9 +17,35 @@ for \*nix users
 
 # LSP
 ## JAVA
+- use [jdtls-launcher](https://github.com/eruizc-dev/jdtls-launcher) **Recommanded**
 - use [nvim-jdtls](https://github.com/mfussenegger/nvim-jdtls) plugin for native LSP
 
-### Installation
+### jdtls-launcher
+> For easy use of java lsp
+
+Follow instructions at [jdtls-launcher](https://github.com/eruizc-dev/jdtls-launcher) **Recommanded**
+
+**Automatic installation**
+```bash
+curl https://raw.githubusercontent.com/eruizc-dev/jdtls-launcher/master/install.sh | bash
+
+# .bashrc, .zshrc or whatever shell you use
+export PATH=$PATH:$HOME/.local/bin
+```
+
+then setup at `lsp-setup.lua`
+
+```lua
+require'lspconfig'.jdtls.setup{
+   cmd = { 'jdtls' },
+   root_dir = function(fname)
+      return require'lspconfig'.util.root_pattern('pom.xml', 'gradle.build', '.git')(fname) or vim.fn.getcwd()
+   end
+}
+```
+
+
+### nvim-jdtls Installation
 > [YOUTUBE: how to configue nvim-lsp | From scratch](https://www.youtube.com/watch?v=E-MvQC04Cbo&t=552s)
 
 - first add it to plugin.lua

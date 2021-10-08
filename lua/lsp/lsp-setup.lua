@@ -15,7 +15,7 @@ local on_attach = function(client, bufnr)
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  buf_set_keymap('n', 'M', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
   buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
   buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
   buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
@@ -49,3 +49,13 @@ end
 --require 'lspconfig'.pyright.setup{on_attach = config_.on_attach}       -- python
 --require 'lspconfig'.clangd.setup{on_attach = on_attach}         -- clangd
 --require 'lsp.java.jdtls-config'.setup()   -- java - full functionality
+
+require'lspconfig'.jdtls.setup{
+   cmd = { 'jdtls' },
+   on_attach = on_attach,
+   root_dir = function(fname)
+      return require'lspconfig'.util.root_pattern('pom.xml', 'gradle.build', '.git')(fname) or vim.fn.getcwd()
+   end
+}
+
+------------ LSP SAGA ----------------

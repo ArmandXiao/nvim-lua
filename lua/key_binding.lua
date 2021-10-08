@@ -19,6 +19,7 @@ keymap('v', 'H', '^', {noremap = true})
 
 -- ** Operations ** --
 keymap('i', 'jk', '<ESC>', {}) -- escape
+keymap('t', '<ESC>', '<C-\\><C-n>', {}) -- Terminal escape
 
 keymap('n', '<leader><leader>r', ':source %<CR>', {noremap = true}) -- source code
 
@@ -72,3 +73,4 @@ keymap('n', '<LEADER>6', ':b 6<CR>', {noremap = true, silent = true})
 keymap('n', '<LEADER>7', ':b 7<CR>', {noremap = true, silent = true})
 keymap('n', '<LEADER>8', ':b 8<CR>', {noremap = true, silent = true})
 keymap('n', '<LEADER>9', ':b 9<CR>', {noremap = true, silent = true})
+

@@ -77,6 +77,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/lingao/.local/share/nvim/site/pack/packer/start/bufferline.nvim"
   },
+  ["galaxyline.nvim"] = {
+    config = { "\27LJ\1\2@\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0%plugin-config.galaxyline.eviline\frequire\0" },
+    loaded = true,
+    path = "/home/lingao/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"
+  },
   nerdcommenter = {
     loaded = true,
     path = "/home/lingao/.local/share/nvim/site/pack/packer/start/nerdcommenter"
@@ -101,6 +106,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/lingao/.local/share/nvim/site/pack/packer/start/nvim-lspinstall"
   },
+  ["nvim-tree.lua"] = {
+    config = { "\27LJ\1\2;\0\0\2\0\3\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0002\1\0\0>\0\2\1G\0\1\0\nsetup\14nvim-tree\frequire\0" },
+    loaded = true,
+    path = "/home/lingao/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
+  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/home/lingao/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
@@ -121,17 +131,13 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/lingao/.local/share/nvim/site/pack/packer/start/telescope-fzy-native.nvim"
   },
+  ["telescope-lsp-handlers.nvim"] = {
+    loaded = true,
+    path = "/home/lingao/.local/share/nvim/site/pack/packer/start/telescope-lsp-handlers.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/lingao/.local/share/nvim/site/pack/packer/start/telescope.nvim"
-  },
-  ["vim-airline"] = {
-    loaded = true,
-    path = "/home/lingao/.local/share/nvim/site/pack/packer/start/vim-airline"
-  },
-  ["vim-airline-themes"] = {
-    loaded = true,
-    path = "/home/lingao/.local/share/nvim/site/pack/packer/start/vim-airline-themes"
   },
   ["vim-peekaboo"] = {
     loaded = true,
@@ -152,6 +158,14 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: galaxyline.nvim
+time([[Config for galaxyline.nvim]], true)
+try_loadstring("\27LJ\1\2@\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0%plugin-config.galaxyline.eviline\frequire\0", "config", "galaxyline.nvim")
+time([[Config for galaxyline.nvim]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+try_loadstring("\27LJ\1\2;\0\0\2\0\3\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0002\1\0\0>\0\2\1G\0\1\0\nsetup\14nvim-tree\frequire\0", "config", "nvim-tree.lua")
+time([[Config for nvim-tree.lua]], false)
 if should_profile then save_profiles() end
 
 end)

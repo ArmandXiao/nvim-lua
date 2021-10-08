@@ -1,4 +1,4 @@
-vim.o.ruler = false
+vim.o.ruler = true
 vim.o.splitright = true
 vim.o.splitbelow = true
 vim.o.ignorecase = true
@@ -18,12 +18,12 @@ vim.wo.relativenumber = true
 vim.wo.signcolumn = 'number'
 vim.wo.wrap = false
 
-vim.o.tabstop = 2
-vim.bo.tabstop = 2
-vim.o.softtabstop = 2
-vim.bo.softtabstop = 2
-vim.o.shiftwidth = 2
-vim.bo.shiftwidth = 2
+vim.o.tabstop = 4
+vim.bo.tabstop = 4
+vim.o.softtabstop = 4
+vim.bo.softtabstop = 4
+vim.o.shiftwidth = 4
+vim.bo.shiftwidth = 4
 vim.o.autoindent = true
 vim.bo.autoindent = true
 vim.o.expandtab = true

@@ -4,19 +4,17 @@ require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
   -- ** apperance ** --
---[[
   use {
   'glepnir/galaxyline.nvim',
     branch = 'main',
-    -- your statusline
-    config = function() require'galaxyline.spaceline' end,
-    -- some optional icons
+    --your statusline
+    config = function() require('plugin-config.galaxyline.eviline') end,
+    --some optional icons
     requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
---]]
 
-  use 'vim-airline/vim-airline' -- status line
-  use 'vim-airline/vim-airline-themes'
+  --use 'vim-airline/vim-airline' -- status line
+  --use 'vim-airline/vim-airline-themes'
 
   use {
     'akinsho/bufferline.nvim',
@@ -39,18 +37,27 @@ require('packer').startup(function()
   }
 
   -- ** Files ** --
-  use 'preservim/nerdtree'
+  --use 'preservim/nerdtree'
 
   use {
     'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
 
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function() require'nvim-tree'.setup {} end
+  }
+
+
   use {'nvim-telescope/telescope-fzy-native.nvim'}  -- fzy, not fzf, be careful
+  use {'gbrlsnchs/telescope-lsp-handlers.nvim'}     -- telescope: extension: lsp-handlers
 
   -- ** LSP ** --
   use 'neovim/nvim-lspconfig'
   use 'kabouzeid/nvim-lspinstall'
+  --use 'glepnir/lspsaga.nvim'
 
   use 'mfussenegger/nvim-jdtls' -- java lsp
 
@@ -67,12 +74,7 @@ local keymap = vim.api.nvim_set_keymap
 local unmap = vim.api.nvim_del_keymap
 
 -- * Buffer line* ---
-require("bufferline").setup{ 
-  options = {
-    show_buffer_icons = false,
-    show_buffer_close_icons = false
-  }
-}
+require("bufferline").setup{}
 
 keymap('n', '<leader>n', ':BufferLineCycleNext<CR>', { noremap = true })
 keymap('n', '<leader>b', ':BufferLineCyclePrev<CR>', { noremap = true })
@@ -85,7 +87,10 @@ keymap('n', '?', ':call nerdcommenter#Comment(0, "toggle")<CR>', { silent = true
 keymap('v', '?', ':call nerdcommenter#Comment(0, "toggle")<CR>', { silent = true })
 
 -- * NerdTree * --
-keymap('n', '<leader>f', ":NERDTreeToggle<CR>", { noremap = true, silent = true })
+--keymap('n', '<leader>f', ":NERDTreeToggle<CR>", { noremap = true, silent = true })
+
+-- * Nvim-tree * --
+keymap('n', '<leader>f', ":NvimTreeToggle<CR>", { noremap = true, silent = true })
 
 -- * Telescope * --
 require('plugin-config.telescope')
@@ -96,3 +101,4 @@ keymap('n', '<leader>j', ":AnyJump<CR>", { noremap = true, silent = true })
 -- * LSP config * --
 --require('lsp.lsp-config')
 require('lsp.compe-config')
+require('plugin-config.lspsaga')
