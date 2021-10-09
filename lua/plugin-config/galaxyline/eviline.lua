@@ -4,30 +4,84 @@ local condition = require('galaxyline.condition')
 local gls = gl.section
 gl.short_line_list = {'NvimTree','vista','dbui','packer'}
 
+
+local buffer_not_empty = function()
+  if vim.fn.empty(vim.fn.expand('%:t')) ~= 1 then
+    return true
+  end
+  return false
+end
+
 gls.left[1] = {
   RainbowRed = {
     provider = function() return '▊ ' end,
     highlight = {colors.blue,colors.bg}
   },
 }
+
 gls.left[2] = {
   ViMode = {
     provider = function()
       -- auto change color according the vim mode
-      local mode_color = {n = colors.red, i = colors.green,v=colors.blue,
-                          [''] = colors.blue,V=colors.blue,
-                          c = colors.magenta,no = colors.red,s = colors.orange,
-                          S=colors.orange,[''] = colors.orange,
-                          ic = colors.yellow,R = colors.violet,Rv = colors.violet,
-                          cv = colors.red,ce=colors.red, r = colors.cyan,
-                          rm = colors.cyan, ['r?'] = colors.cyan,
-                          ['!']  = colors.red,t = colors.red}
-      vim.api.nvim_command('hi GalaxyViMode guifg='..mode_color[vim.fn.mode()])
-      return '  '
+      --local alias = {n = 'NORMAL ',i = 'INSERT ',c= 'COMMAND',v= 'VISUAL ',V= 'VISLINE', [''] = 'VIS-BLK'}
+      local mode_color = {
+        i = colors.violet,
+        n = colors.green,
+        v = colors.blue,
+        [''] = colors.cyan,
+        V = colors.blue,
+        c = colors.magenta,
+        no = colors.red,
+        s = colors.orange,
+        S = colors.orange,
+        [""] = colors.orange,
+        ic = colors.yellow,
+        R = colors.violet,
+        Rv = colors.violet,
+        cv = colors.red,
+        ce = colors.red,
+        r = colors.cyan,
+        rm = colors.cyan,
+        ["r?"] = colors.cyan,
+        ["!"] = colors.red,
+        t = colors.red,
+      }
+      --vim.api.nvim_command("hi GalaxyViMode guifg=" .. mode_color[vim.fn.mode()])
+      vim.api.nvim_command("hi GalaxyViMode guifg=" .. mode_color[vim.fn.mode()])
+      --return alias[vim.fn.mode()]
+      return "  "
     end,
-    highlight = {colors.red,colors.bg,'bold'},
+    --separator = ' ',
+    --separator_highlight = {colors.purple,function()
+      --if not buffer_not_empty() then
+        --return colors.bg
+      --end
+      --return colors.bg
+    --end},
+    highlight = { colors.red, colors.bg, "bold" },
   },
 }
+
+--gls.left[2] = {
+  --ViMode = {
+    --provider = function()
+      ---- auto change color according the vim mode
+      --local mode_color = {n = colors.red, i = colors.green,v=colors.blue,
+                          --[''] = colors.blue,V=colors.blue,
+                          --c = colors.magenta,no = colors.red,s = colors.orange,
+                          --S=colors.orange,[''] = colors.orange,
+                          --ic = colors.yellow,
+                          ----R = colors.violet,Rv = colors.violet,
+                          ----cv = colors.red,ce=colors.red, r = colors.cyan,
+                          --rm = colors.cyan, ['r?'] = colors.cyan,
+                          --['!']  = colors.red,t = colors.red}
+      --vim.api.nvim_command('hi GalaxyViMode guifg='..mode_color[vim.fn.mode()])
+      --return '  '
+    --end,
+    --highlight = {colors.red,colors.bg,'bold'},
+  --},
+--}
+
 gls.left[3] = {
   FileSize = {
     provider = 'FileSize',
