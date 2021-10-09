@@ -86,10 +86,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/lingao/.local/share/nvim/site/pack/packer/start/nerdcommenter"
   },
-  nerdtree = {
-    loaded = true,
-    path = "/home/lingao/.local/share/nvim/site/pack/packer/start/nerdtree"
-  },
   ["nvim-compe"] = {
     loaded = true,
     path = "/home/lingao/.local/share/nvim/site/pack/packer/start/nvim-compe"

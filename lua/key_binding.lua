@@ -32,18 +32,25 @@ keymap('n', '<S-q>', ':q<CR>', {})
 --keymap('n', '>', '>>', {noremap = true})
 
 -- ** Functions ** --
-keymap('n', '<C-a>', ':ggVG', {noremap = true}) -- set Ctrl+a as select all
+keymap('n', '<C-a>', 'ggVG', {noremap = true}) -- set Ctrl+a as select all
 keymap('n', '<leader>a', '<C-a>', {noremap = true}) -- auto increment
 keymap('v', '<leader>a', '<C-a>', {noremap = true})
+keymap('n', '<leader>x', '<C-x>', {noremap = true}) -- auto decrement
+keymap('v', '<leader>x', '<C-x>', {noremap = true})
 
 keymap('n', '<leader>,', ':nohl<CR>', {noremap = true, silent = true})
-keymap('n', 'cp', ':set spell spelllang=en_us<CR>', {noremap = true})
 
---- *** Wkndows *** ---
+--- Place Holder
+keymap('i', ';;', '<ESC>/<++><CR>:nohlsearch<CR>c4l', {noremap = true, silent = true})
+keymap('n', ';;', '/<++><CR>:nohlsearch<CR>c4l', {noremap = true, silent = true})
 
+-- Spelling stuff --
+keymap('n', 'cp', ':set spell!<CR>', {noremap = true})
+
+--- *** Windows *** ---
 -- ** Split ** --
 keymap('n', '<LEADER><LEADER>l', ':set splitright<CR>:vsplit<CR>', {noremap = true, silent = true})
-keymap('n', '<kEADER><LEADER>h', ':set nosplitright<CR>:vsplit<CR>', {noremap = true, silent = true})
+keymap('n', '<LEADER><LEADER>h', ':set nosplitright<CR>:vsplit<CR>', {noremap = true, silent = true})
 keymap('n', '<LEADER><LEADER>k', ':set nosplitbelow<CR>:split<CR>', {noremap = true, silent = true})
 keymap('n', '<LEADER><LEADER>j', ':set splitbelow<CR>:split<CR>', {noremap = true, silent = true})
 
