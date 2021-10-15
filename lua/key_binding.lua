@@ -40,6 +40,9 @@ keymap('v', '<leader>x', '<C-x>', {noremap = true})
 
 keymap('n', '<leader>,', ':nohl<CR>', {noremap = true, silent = true})
 
+keymap('i', '{<CR>', '{<CR>}<ESC>O', {noremap = true, silent = true})
+
+
 --- Place Holder
 keymap('i', ';;', '<ESC>/<++><CR>:nohlsearch<CR>c4l', {noremap = true, silent = true})
 keymap('n', ';;', '/<++><CR>:nohlsearch<CR>c4l', {noremap = true, silent = true})

@@ -1,5 +1,4 @@
 ---- **** Plugins **** ----
-
 require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
@@ -12,29 +11,28 @@ require('packer').startup(function()
     --some optional icons
     requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
-
   --use 'vim-airline/vim-airline' -- status line
   --use 'vim-airline/vim-airline-themes'
-
   use {
     'akinsho/bufferline.nvim',
     requires = 'kyazdani42/nvim-web-devicons'
   } -- buffer line
-
   use 'ful1e5/onedark.nvim' -- theme
+
 
   -- ** Functions ** --
   use 'gcmt/wildfire.vim' -- select in pattern
   use 'tpope/vim-surround'
   --use 'easymotion/vim-easymotion'
   use 'preservim/nerdcommenter' -- lazy commenter
-
   use 'junegunn/vim-peekaboo' -- check buffers
-
   use {
     -- requires package ripgrep 11.0.0+ or ag
     'pechorin/any-jump.vim'
   }
+  --use 'rhysd/vim-clang-format'
+  use 'mhartington/formatter.nvim'  -- require .clang-formatter, can download throught python -m install pip clang-formatter
+
 
   -- ** Files ** --
   --use 'preservim/nerdtree'
@@ -43,29 +41,36 @@ require('packer').startup(function()
     'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
-
   use {
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons',
     config = function() require'nvim-tree'.setup {} end
   }
-
-
   use {'nvim-telescope/telescope-fzy-native.nvim'}  -- fzy, not fzf, be careful
   use {'gbrlsnchs/telescope-lsp-handlers.nvim'}     -- telescope: extension: lsp-handlers
+
 
   -- ** LSP ** --
   use 'neovim/nvim-lspconfig'
   use 'kabouzeid/nvim-lspinstall'
   --use 'glepnir/lspsaga.nvim'
-
   use 'mfussenegger/nvim-jdtls' -- java lsp
 
   use {   -- auto compeletion
-    'hrsh7th/nvim-compe',
-    requires = 'hrsh7th/vim-vsnip'
-
+    'hrsh7th/nvim-cmp',
+    requires = {
+        --'hrsh7th/vim-vsnip',
+        'SirVer/ultisnips',
+        'quangnguyen30192/cmp-nvim-ultisnips',  -- ultisnips source
+        'honza/vim-snippets',    -- Snippet engine
+        'hrsh7th/cmp-nvim-lsp',
+        'hrsh7th/cmp-buffer',
+        'hrsh7th/cmp-look'
+    }
   }
+
+  -- Snippet --
+  use 'honza/vim-snippets'
 
 end)
 
@@ -80,11 +85,16 @@ keymap('n', '<leader>n', ':BufferLineCycleNext<CR>', { noremap = true })
 keymap('n', '<leader>b', ':BufferLineCyclePrev<CR>', { noremap = true })
 
 
+
 require('onedark').setup()  -- one dark theme
 
 -- * NerdCommeter * --
 keymap('n', '?', ':call nerdcommenter#Comment(0, "toggle")<CR>', { silent = true })
 keymap('v', '?', ':call nerdcommenter#Comment(0, "toggle")<CR>', { silent = true })
+
+-- * formatter.nvim * --
+keymap('n', '<A-S-K>', ':Format<CR>', {noremap = true, silent = true})
+require('plugin-config.formatter.setup')
 
 -- * NerdTree * --
 --keymap('n', '<leader>f', ":NERDTreeToggle<CR>", { noremap = true, silent = true })
@@ -100,5 +110,9 @@ keymap('n', '<leader>j', ":AnyJump<CR>", { noremap = true, silent = true })
 
 -- * LSP config * --
 --require('lsp.lsp-config')
-require('lsp.compe-config')
-require('plugin-config.lspsaga')
+require('lsp.lsp-cmp-config')
+
+vim.g.UltiSnipsJumpForwardTrigger=";j"
+vim.g.UltiSnipsJumpBackwardTrigger=";k"
+
+--require('plugin-config.lspsaga')

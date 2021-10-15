@@ -77,6 +77,26 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/lingao/.local/share/nvim/site/pack/packer/start/bufferline.nvim"
   },
+  ["cmp-buffer"] = {
+    loaded = true,
+    path = "/home/lingao/.local/share/nvim/site/pack/packer/start/cmp-buffer"
+  },
+  ["cmp-look"] = {
+    loaded = true,
+    path = "/home/lingao/.local/share/nvim/site/pack/packer/start/cmp-look"
+  },
+  ["cmp-nvim-lsp"] = {
+    loaded = true,
+    path = "/home/lingao/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp"
+  },
+  ["cmp-nvim-ultisnips"] = {
+    loaded = true,
+    path = "/home/lingao/.local/share/nvim/site/pack/packer/start/cmp-nvim-ultisnips"
+  },
+  ["formatter.nvim"] = {
+    loaded = true,
+    path = "/home/lingao/.local/share/nvim/site/pack/packer/start/formatter.nvim"
+  },
   ["galaxyline.nvim"] = {
     config = { "\27LJ\1\2@\0\0\2\0\2\0\0044\0\0\0%\1\1\0>\0\2\1G\0\1\0%plugin-config.galaxyline.eviline\frequire\0" },
     loaded = true,
@@ -86,9 +106,9 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/lingao/.local/share/nvim/site/pack/packer/start/nerdcommenter"
   },
-  ["nvim-compe"] = {
+  ["nvim-cmp"] = {
     loaded = true,
-    path = "/home/lingao/.local/share/nvim/site/pack/packer/start/nvim-compe"
+    path = "/home/lingao/.local/share/nvim/site/pack/packer/start/nvim-cmp"
   },
   ["nvim-jdtls"] = {
     loaded = true,
@@ -135,17 +155,21 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/lingao/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
+  ultisnips = {
+    loaded = true,
+    path = "/home/lingao/.local/share/nvim/site/pack/packer/start/ultisnips"
+  },
   ["vim-peekaboo"] = {
     loaded = true,
     path = "/home/lingao/.local/share/nvim/site/pack/packer/start/vim-peekaboo"
   },
+  ["vim-snippets"] = {
+    loaded = true,
+    path = "/home/lingao/.local/share/nvim/site/pack/packer/start/vim-snippets"
+  },
   ["vim-surround"] = {
     loaded = true,
     path = "/home/lingao/.local/share/nvim/site/pack/packer/start/vim-surround"
-  },
-  ["vim-vsnip"] = {
-    loaded = true,
-    path = "/home/lingao/.local/share/nvim/site/pack/packer/start/vim-vsnip"
   },
   ["wildfire.vim"] = {
     loaded = true,
