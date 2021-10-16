@@ -19,6 +19,7 @@ keymap('v', 'H', '^', {noremap = true})
 
 -- ** Operations ** --
 keymap('i', 'jk', '<ESC>', {}) -- escape
+keymap('i', '<C-H>', '<C-W>', {noremap = true}) -- Ctrl+BackSpace to delete a whole world
 keymap('t', '<ESC>', '<C-\\><C-n>', {}) -- Terminal escape
 
 keymap('n', '<leader><leader>r', ':source %<CR>', {noremap = true}) -- source code
@@ -32,9 +33,9 @@ keymap('n', '<S-q>', ':q<CR>', {})
 --keymap('n', '>', '>>', {noremap = true})
 
 -- ** Functions ** --
-keymap('n', '<C-a>', 'ggVG', {noremap = true}) -- set Ctrl+a as select all
-keymap('n', '<leader>a', '<C-a>', {noremap = true}) -- auto increment
-keymap('v', '<leader>a', '<C-a>', {noremap = true})
+--keymap('n', '<C-a>', 'ggVG', {noremap = true}) -- set Ctrl+a as select all
+--keymap('n', '<leader>a', '<C-a>', {noremap = true}) -- auto increment
+--keymap('v', '<leader>a', '<C-a>', {noremap = true})
 keymap('n', '<leader>x', '<C-x>', {noremap = true}) -- auto decrement
 keymap('v', '<leader>x', '<C-x>', {noremap = true})
 
@@ -42,8 +43,10 @@ keymap('n', '<leader>,', ':nohl<CR>', {noremap = true, silent = true})
 
 keymap('i', '{<CR>', '{<CR>}<ESC>O', {noremap = true, silent = true})
 
+--- ** Fold ** ---
+keymap('n', 'zf', ':set foldmethod=syntax<CR>:set foldlevel=1<CR>', {noremap = true, silent = true})
 
---- Place Holder
+--- ** Place Holder ** ---
 keymap('i', ';;', '<ESC>/<++><CR>:nohlsearch<CR>c4l', {noremap = true, silent = true})
 keymap('n', ';;', '/<++><CR>:nohlsearch<CR>c4l', {noremap = true, silent = true})
 
@@ -83,4 +86,3 @@ keymap('n', '<LEADER>6', ':b 6<CR>', {noremap = true, silent = true})
 keymap('n', '<LEADER>7', ':b 7<CR>', {noremap = true, silent = true})
 keymap('n', '<LEADER>8', ':b 8<CR>', {noremap = true, silent = true})
 keymap('n', '<LEADER>9', ':b 9<CR>', {noremap = true, silent = true})
-
