@@ -102,9 +102,17 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/lingao/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"
   },
+  ["lsp_signature.nvim"] = {
+    loaded = true,
+    path = "/home/lingao/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim"
+  },
   nerdcommenter = {
     loaded = true,
     path = "/home/lingao/.local/share/nvim/site/pack/packer/start/nerdcommenter"
+  },
+  ["nightfox.nvim"] = {
+    loaded = true,
+    path = "/home/lingao/.local/share/nvim/site/pack/packer/start/nightfox.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -127,13 +135,17 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/lingao/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
   },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "/home/lingao/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
+  },
+  ["nvim-treesitter-context"] = {
+    loaded = true,
+    path = "/home/lingao/.local/share/nvim/site/pack/packer/start/nvim-treesitter-context"
+  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/home/lingao/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
-  },
-  ["onedark.nvim"] = {
-    loaded = true,
-    path = "/home/lingao/.local/share/nvim/site/pack/packer/start/onedark.nvim"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -142,6 +154,10 @@ _G.packer_plugins = {
   ["plenary.nvim"] = {
     loaded = true,
     path = "/home/lingao/.local/share/nvim/site/pack/packer/start/plenary.nvim"
+  },
+  ["symbols-outline.nvim"] = {
+    loaded = true,
+    path = "/home/lingao/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim"
   },
   ["telescope-fzy-native.nvim"] = {
     loaded = true,

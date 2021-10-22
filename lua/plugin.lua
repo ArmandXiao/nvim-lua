@@ -17,12 +17,17 @@ require('packer').startup(function()
     'akinsho/bufferline.nvim',
     requires = 'kyazdani42/nvim-web-devicons'
   } -- buffer line
-  use 'ful1e5/onedark.nvim' -- theme
+
+  --use 'ful1e5/onedark.nvim' -- theme
+  --use '/onedark.nvim' -- theme
+  use 'EdenEast/nightfox.nvim'
 
 
   -- ** Functions ** --
   use 'gcmt/wildfire.vim' -- select in pattern
   use 'tpope/vim-surround'
+  use 'simrat39/symbols-outline.nvim'
+
   --use 'easymotion/vim-easymotion'
   use 'preservim/nerdcommenter' -- lazy commenter
   use 'junegunn/vim-peekaboo' -- check buffers
@@ -63,10 +68,21 @@ require('packer').startup(function()
         'SirVer/ultisnips',
         'quangnguyen30192/cmp-nvim-ultisnips',  -- ultisnips source
         'honza/vim-snippets',    -- Snippet engine
+
         'hrsh7th/cmp-nvim-lsp',
         'hrsh7th/cmp-buffer',
-        'hrsh7th/cmp-look'
+        'hrsh7th/cmp-look',
+
+        'ray-x/lsp_signature.nvim'
     }
+  }
+
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    requires = {
+        'romgrk/nvim-treesitter-context'
+    },
+    run = ':TSUpdate'
   }
 
   -- Snippet --
@@ -81,12 +97,11 @@ local unmap = vim.api.nvim_del_keymap
 -- * Buffer line* ---
 require("bufferline").setup{}
 
-keymap('n', '<leader>n', ':BufferLineCycleNext<CR>', { noremap = true })
-keymap('n', '<leader>b', ':BufferLineCyclePrev<CR>', { noremap = true })
+keymap('n', '<Tab>', ':BufferLineCycleNext<CR>', { noremap = true })
+keymap('n', '<S-Tab>', ':BufferLineCyclePrev<CR>', { noremap = true })
 
-
-
-require('onedark').setup()  -- one dark theme
+--require('onedark').setup()  -- one dark theme
+require('nightfox').load(duskfox)
 
 -- * NerdCommeter * --
 keymap('n', '?', ':call nerdcommenter#Comment(0, "toggle")<CR>', { silent = true })
@@ -98,6 +113,9 @@ require('plugin-config.formatter.setup')
 
 -- * NerdTree * --
 --keymap('n', '<leader>f', ":NERDTreeToggle<CR>", { noremap = true, silent = true })
+
+-- * symbols-outline.nvim * --
+keymap('n', '<leader>F', ":SymbolsOutline<CR>", { noremap = true, silent = true })
 
 -- * Nvim-tree * --
 keymap('n', '<leader>f', ":NvimTreeToggle<CR>", { noremap = true, silent = true })
@@ -115,4 +133,8 @@ require('lsp.lsp-cmp-config')
 vim.g.UltiSnipsJumpForwardTrigger=";j"
 vim.g.UltiSnipsJumpBackwardTrigger=";k"
 
+require('lsp.lsp-signature-config')
 --require('plugin-config.lspsaga')
+
+--- ** treesitter ** ---
+require('plugin-config.treesitter.setup')

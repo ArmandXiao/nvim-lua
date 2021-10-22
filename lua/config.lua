@@ -1,4 +1,5 @@
 vim.o.ruler = true
+vim.o.cursorline = true
 vim.o.splitright = true
 vim.o.splitbelow = true
 vim.o.ignorecase = true
@@ -28,6 +29,8 @@ vim.o.autoindent = true
 vim.bo.autoindent = true
 vim.o.expandtab = true
 vim.bo.expandtab = true
+
+vim.o.clipboard = "unnamedplus"   -- enable clipboard
 
 vim.g.mapleader = ' '
 vim.b.mapleader = ' '

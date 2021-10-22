@@ -17,6 +17,8 @@ keymap('v', 'L', '$', {noremap = true})
 keymap('n', 'H', '^', {noremap = true})
 keymap('v', 'H', '^', {noremap = true})
 
+keymap('n', '*', "*:nohl<CR>" , {noremap = true, silent = true})
+
 -- ** Operations ** --
 keymap('i', 'jk', '<ESC>', {}) -- escape
 keymap('i', '<C-H>', '<C-W>', {noremap = true}) -- Ctrl+BackSpace to delete a whole world
@@ -25,8 +27,8 @@ keymap('t', '<ESC>', '<C-\\><C-n>', {}) -- Terminal escape
 keymap('n', '<leader><leader>r', ':source %<CR>', {noremap = true}) -- source code
 
 keymap('n', '<C-s>', ':w<CR>', {}) -- save
-keymap('n', '<C-q>', ':q<CR>', {}) -- exit
-keymap('n', '<S-q>', ':q<CR>', {})
+--keymap('n', '<C-q>', ':q<CR>', {}) -- exit
+--keymap('n', '<S-q>', ':q<CR>', {})
 
 -- ** Indentation ** --
 --keymap('n', '<', '<<', {noremap = true})
@@ -61,10 +63,10 @@ keymap('n', '<LEADER><LEADER>k', ':set nosplitbelow<CR>:split<CR>', {noremap = t
 keymap('n', '<LEADER><LEADER>j', ':set splitbelow<CR>:split<CR>', {noremap = true, silent = true})
 
 -- ** Focus ** --
-keymap('n', '<C-j>', '<C-w>j', {noremap = true, silent = true})
-keymap('n', '<C-k>', '<C-w>k', {noremap = true, silent = true})
-keymap('n', '<C-h>', '<C-w>h', {noremap = true, silent = true})
-keymap('n', '<C-l>', '<C-w>l', {noremap = true, silent = true})
+keymap('n', '<A-S-j>', '<C-w>j', {noremap = true, silent = true})
+keymap('n', '<A-S-k>', '<C-w>k', {noremap = true, silent = true})
+keymap('n', '<A-S-h>', '<C-w>h', {noremap = true, silent = true})
+keymap('n', '<A-S-l>', '<C-w>l', {noremap = true, silent = true})
 
 -- ** Resize ** --
 keymap('n', '<up>', ':res +5<CR>', {noremap = true, silent = true})
@@ -86,3 +88,7 @@ keymap('n', '<LEADER>6', ':b 6<CR>', {noremap = true, silent = true})
 keymap('n', '<LEADER>7', ':b 7<CR>', {noremap = true, silent = true})
 keymap('n', '<LEADER>8', ':b 8<CR>', {noremap = true, silent = true})
 keymap('n', '<LEADER>9', ':b 9<CR>', {noremap = true, silent = true})
+
+---------- *** Functions *** --------
+require('function.compile')
+require('function.quit')

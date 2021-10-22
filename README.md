@@ -59,6 +59,27 @@ require'lspconfig'.jdtls.setup{
   jdtls-launch
   ```
 
+## Signature help
+- [Signature Help](https://github.com/ray-x/lsp_signature.nvim)
+
+---
+
+- [Java lsp dont work](https://github.com/ray-x/lsp_signature.nvim/issues/97)
+Solution:
+```lua
+require('lspconfig').jdtls.setup{
+    settings = {
+      java = {signatureHelp = {enabled = true}, contentProvider = {preferred = 'fernflower'}}
+    },
+    on_init = function(client)
+      if client.config.settings then
+        client.notify('workspace/didChangeConfiguration', {settings = client.config.settings})
+      end
+    end,
+    ...
+}
+```
+
 ---
 
 > Q: Why do we want to rewrite `init.vim`?

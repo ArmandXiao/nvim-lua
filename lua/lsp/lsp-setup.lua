@@ -66,12 +66,27 @@ end
 --require 'lsp.java.jdtls-config'.setup()   -- java - full functionality
 
 -- ** Java ** --
+-- this one is jdtls not nvim-jdtls
 require'lspconfig'.jdtls.setup{
-   cmd = { 'jdtls' },
-   on_attach = on_attach,
-   root_dir = function(fname)
-      return require'lspconfig'.util.root_pattern('pom.xml', 'gradle.build', '.git')(fname) or vim.fn.getcwd()
-   end
+    -- Enable signature
+    settings = {
+        java = {
+            signature_help = { enable = true };
+            contentProvider = { preferred = 'fernflower'}
+        }
+    },
+    on_init = function(client)
+      if client.config.settings then
+        client.notify('workspace/didChangeConfiguration', {settings = client.config.settings})
+      end
+    end,
+
+    cmd = { 'jdtls' },
+    on_attach = on_attach,
+    root_dir = function(fname)
+        return require'lspconfig'.util.root_pattern('pom.xml', 'gradle.build', '.git')(fname) or vim.fn.getcwd()
+    end
+
 }
 
 -- ** Lua ** --

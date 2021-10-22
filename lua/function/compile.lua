@@ -27,4 +27,5 @@ function CompileRun()
     end
 end
 
+
 keymap('n', 'R', ":lua CompileRun()<CR>" , {noremap = true})
