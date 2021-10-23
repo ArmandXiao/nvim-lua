@@ -1,13 +1,26 @@
+---- **** Packer Configs **** ----
+local packer = require('packer')
+local util = require('plugin.config.packer.util')
+
+packer.init({
+    compile_path = util.join_paths(vim.fn.stdpath('config') , 'lua/plugin/config/packer' , 'packer_compiled.lua')
+})
+
+packer.reset()
+
 ---- **** Plugins **** ----
-require('packer').startup(function()
+packer.startup(function()
   use 'wbthomason/packer.nvim'
+
+  -- ** Optimazition ** --
+  use {'lewis6991/impatient.nvim'}
 
   -- ** apperance ** --
   use {
   'glepnir/galaxyline.nvim',
     branch = 'main',
     --your statusline
-    config = function() require('plugin-config.galaxyline.eviline') end,
+    config = function() require('plugin.config.galaxyline.eviline') end,
     --some optional icons
     requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
@@ -109,7 +122,7 @@ keymap('v', '?', ':call nerdcommenter#Comment(0, "toggle")<CR>', { silent = true
 
 -- * formatter.nvim * --
 keymap('n', '<A-S-K>', ':Format<CR>', {noremap = true, silent = true})
-require('plugin-config.formatter.setup')
+require('plugin.config.formatter.setup')
 
 -- * NerdTree * --
 --keymap('n', '<leader>f', ":NERDTreeToggle<CR>", { noremap = true, silent = true })
@@ -121,7 +134,7 @@ keymap('n', '<leader>F', ":SymbolsOutline<CR>", { noremap = true, silent = true 
 keymap('n', '<leader>f', ":NvimTreeToggle<CR>", { noremap = true, silent = true })
 
 -- * Telescope * --
-require('plugin-config.telescope')
+require('plugin.config.telescope')
 
 -- * Any-Jump * --
 keymap('n', '<leader>j', ":AnyJump<CR>", { noremap = true, silent = true })
@@ -134,7 +147,7 @@ vim.g.UltiSnipsJumpForwardTrigger=";j"
 vim.g.UltiSnipsJumpBackwardTrigger=";k"
 
 require('lsp.lsp-signature-config')
---require('plugin-config.lspsaga')
+--require('plugin.config.lspsaga')
 
 --- ** treesitter ** ---
-require('plugin-config.treesitter.setup')
+require('plugin.config.treesitter.setup')

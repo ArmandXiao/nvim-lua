@@ -45,9 +45,6 @@ keymap('n', '<leader>,', ':nohl<CR>', {noremap = true, silent = true})
 
 keymap('i', '{<CR>', '{<CR>}<ESC>O', {noremap = true, silent = true})
 
---- ** Fold ** ---
-keymap('n', 'zf', ':set foldmethod=syntax<CR>:set foldlevel=1<CR>', {noremap = true, silent = true})
-
 --- ** Place Holder ** ---
 keymap('i', ';;', '<ESC>/<++><CR>:nohlsearch<CR>c4l', {noremap = true, silent = true})
 keymap('n', ';;', '/<++><CR>:nohlsearch<CR>c4l', {noremap = true, silent = true})
@@ -90,5 +87,5 @@ keymap('n', '<LEADER>8', ':b 8<CR>', {noremap = true, silent = true})
 keymap('n', '<LEADER>9', ':b 9<CR>', {noremap = true, silent = true})
 
 ---------- *** Functions *** --------
-require('function.compile')
-require('function.quit')
+--require('function.compile')
+--require('function.quit')
