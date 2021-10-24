@@ -39,7 +39,12 @@ packer.startup(function()
   -- ** Functions ** --
   use 'gcmt/wildfire.vim' -- select in pattern
   use 'tpope/vim-surround'
-  use 'simrat39/symbols-outline.nvim'
+  --use 'simrat39/symbols-outline.nvim'
+  use {
+      'preservim/tagbar'
+      -- require ctags in path
+      -- sudo Pacman -S ctags
+  }
 
   --use 'easymotion/vim-easymotion'
   use 'preservim/nerdcommenter' -- lazy commenter
@@ -121,14 +126,14 @@ keymap('n', '?', ':call nerdcommenter#Comment(0, "toggle")<CR>', { silent = true
 keymap('v', '?', ':call nerdcommenter#Comment(0, "toggle")<CR>', { silent = true })
 
 -- * formatter.nvim * --
-keymap('n', '<A-S-K>', ':Format<CR>', {noremap = true, silent = true})
+keymap('n', '<A-K>', ':Format<CR>', {noremap = true, silent = true})
 require('plugin.config.formatter.setup')
 
 -- * NerdTree * --
 --keymap('n', '<leader>f', ":NERDTreeToggle<CR>", { noremap = true, silent = true })
 
--- * symbols-outline.nvim * --
-keymap('n', '<leader>F', ":SymbolsOutline<CR>", { noremap = true, silent = true })
+-- * tagbar * --
+keymap('n', '<leader>F', ":TagbarToggle<CR>", { noremap = true, silent = true })
 
 -- * Nvim-tree * --
 keymap('n', '<leader>f', ":NvimTreeToggle<CR>", { noremap = true, silent = true })

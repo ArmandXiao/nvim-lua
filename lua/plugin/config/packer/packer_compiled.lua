@@ -159,9 +159,9 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/lingao/.local/share/nvim/site/pack/packer/start/plenary.nvim"
   },
-  ["symbols-outline.nvim"] = {
+  tagbar = {
     loaded = true,
-    path = "/home/lingao/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim"
+    path = "/home/lingao/.local/share/nvim/site/pack/packer/start/tagbar"
   },
   ["telescope-fzy-native.nvim"] = {
     loaded = true,

@@ -1,3 +1,5 @@
+vim.o.mouse = "a"
+
 vim.o.ruler = true
 vim.o.cursorline = true
 vim.o.splitright = true
@@ -10,6 +12,7 @@ vim.o.hidden = true
 vim.o.updatetime = 300
 vim.o.scrolloff = 5
 vim.o.sidescrolloff = 5
+vim.o.pumheight = 10    -- pop up menu height
 vim.o.completeopt = 'menuone,noinsert,noselect'
 vim.o.shortmess = vim.o.shortmess .. 'c'
 vim.o.showmode = false
@@ -40,5 +43,15 @@ vim.wo.list = true
 vim.o.listchars = 'tab:┆·,trail:·,precedes:,extends:'
 
 vim.g.markdown_fenced_languages = {'sh', 'vim'}
-
 vim.g.termbufm_direction_cmd = 'new'
+
+-- Show cursorline only in active window
+vim.api.nvim_exec(
+[[
+augroup CursorLine
+  au!
+  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  au WinLeave * setlocal nocursorline
+augroup END
+]],
+true)
