@@ -113,13 +113,18 @@ local keymap = vim.api.nvim_set_keymap
 local unmap = vim.api.nvim_del_keymap
 
 -- * Buffer line* ---
-require("bufferline").setup{}
+require("bufferline").setup{
+    options = {
+        separator_style = "slant",
+        name_formatter = nil
+    }
+}
 
 keymap('n', '<Tab>', ':BufferLineCycleNext<CR>', { noremap = true })
 keymap('n', '<S-Tab>', ':BufferLineCyclePrev<CR>', { noremap = true })
 
 --require('onedark').setup()  -- one dark theme
-require('nightfox').load(duskfox)
+require('nightfox').load("duskfox")
 
 -- * NerdCommeter * --
 keymap('n', '?', ':call nerdcommenter#Comment(0, "toggle")<CR>', { silent = true })
