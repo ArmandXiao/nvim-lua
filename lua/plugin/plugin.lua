@@ -61,7 +61,7 @@ packer.startup(function()
     'pechorin/any-jump.vim'
   }
   --use 'rhysd/vim-clang-format'
-  use 'mhartington/formatter.nvim'  -- require .clang-formatter, can download throught python -m install pip clang-formatter
+  use 'mhartington/formatter.nvim'  -- require .clang-formatter, can download throught python -m install pip clang-format
 
 
   -- ** Files ** --
