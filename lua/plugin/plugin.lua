@@ -53,7 +53,18 @@ packer.startup(function()
       -- sudo Pacman -S ctags
   }
 
+  -- * Navigation * --
+  use {
+  'phaazon/hop.nvim',
+  branch = 'v1', -- optional but strongly recommended
+  config = function()
+    -- you can configure Hop the way you like here; see :h hop-config
+    require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+  end
+}
+  --use 'ggandor/lightspeed.nvim'
   --use 'easymotion/vim-easymotion'
+
   use 'preservim/nerdcommenter' -- lazy commenter
   use 'junegunn/vim-peekaboo' -- check buffers
   use {
@@ -104,14 +115,21 @@ packer.startup(function()
 
   use {
     'nvim-treesitter/nvim-treesitter',
+
     requires = {
-        'romgrk/nvim-treesitter-context'
+        'romgrk/nvim-treesitter-context',
+        'p00f/nvim-ts-rainbow'          -- ranbow brackets
     },
+
     run = ':TSUpdate'
   }
 
+  -- debugger
+  use 'puremourning/vimspector'
+
   -- Snippet --
   use 'honza/vim-snippets'
+
 
 end)
 
@@ -140,6 +158,11 @@ keymap('v', '?', ':call nerdcommenter#Comment(0, "toggle")<CR>', { silent = true
 -- * formatter.nvim * --
 keymap('n', '<A-K>', ':Format<CR>', {noremap = true, silent = true})
 require('plugin.config.formatter.setup')
+
+-- * Hop * --
+--require'hop'.setup()
+keymap('n', 'f', ':HopChar2<CR>', { silent = true })
+keymap('n', 'F', ':HopPattern<CR>', { silent = true })
 
 -- * NerdTree * --
 --keymap('n', '<leader>f', ":NERDTreeToggle<CR>", { noremap = true, silent = true })
