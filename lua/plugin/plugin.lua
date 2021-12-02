@@ -53,6 +53,8 @@ packer.startup(function()
       -- sudo Pacman -S ctags
   }
 
+  use 'liuchengxu/vim-which-key'
+
   -- * Navigation * --
   use {
   'phaazon/hop.nvim',
@@ -142,6 +144,9 @@ end)
 local keymap = vim.api.nvim_set_keymap
 local unmap = vim.api.nvim_del_keymap
 
+-- * which key * --
+require('plugin.config.whichkey')
+
 -- * Buffer line* ---
 require("bufferline").setup{
     options = {
@@ -161,7 +166,7 @@ keymap('n', '?', ':call nerdcommenter#Comment(0, "toggle")<CR>', { silent = true
 keymap('v', '?', ':call nerdcommenter#Comment(0, "toggle")<CR>', { silent = true })
 
 -- * formatter.nvim * --
-keymap('n', '<A-K>', ':Format<CR>', {noremap = true, silent = true})
+--keymap('n', '<A-K>', ':Format<CR>', {noremap = true, silent = true})
 require('plugin.config.formatter.setup')
 
 -- * Hop * --
