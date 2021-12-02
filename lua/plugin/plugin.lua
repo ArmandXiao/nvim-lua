@@ -91,6 +91,11 @@ packer.startup(function()
   use {'gbrlsnchs/telescope-lsp-handlers.nvim'}     -- telescope: extension: lsp-handlers
 
 
+  use {
+      'plasticboy/vim-markdown',
+      requires = 'godlygeek/tabular'
+  }
+
   -- ** LSP ** --
   use 'neovim/nvim-lspconfig'
   use 'kabouzeid/nvim-lspinstall'

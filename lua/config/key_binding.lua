@@ -17,7 +17,7 @@ keymap('v', 'L', '$', {noremap = true})
 keymap('n', 'H', '^', {noremap = true})
 keymap('v', 'H', '^', {noremap = true})
 
-keymap('n', '*', "*:nohl<CR>" , {noremap = true, silent = true})
+keymap('n', '*', ":nohl<CR>" , {noremap = true, silent = true})
 
 -- ** Operations ** --
 keymap('i', 'jk', '<ESC>', {}) -- escape
@@ -41,7 +41,7 @@ keymap('n', '<C-s>', ':w<CR>', {}) -- save
 keymap('n', '<leader>x', '<C-x>', {noremap = true}) -- auto decrement
 keymap('v', '<leader>x', '<C-x>', {noremap = true})
 
-keymap('n', '<leader>,', ':nohl<CR>', {noremap = true, silent = true})
+--keymap('n', '<leader>,', ':nohl<CR>', {noremap = true, silent = true})
 
 keymap('i', '{<CR>', '{<CR>}<ESC>O', {noremap = true, silent = true})
 

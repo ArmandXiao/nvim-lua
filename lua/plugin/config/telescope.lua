@@ -1,7 +1,7 @@
 -- * Key remapping * --
 local keymap = vim.api.nvim_set_keymap
 
-keymap('n', '<leader><leader>f', "<cmd>lua require('telescope.builtin').find_files()<cr>", { silent = true })
+keymap('n', '<leader>,', "<cmd>lua require('telescope.builtin').find_files()<cr>", { silent = true })
 keymap('n', '<leader><leader>F', "<cmd>lua require('telescope.builtin').file_browser()<cr>", { silent = true })
 keymap('n', '<leader><leader>g', "<cmd>lua require('telescope.builtin').live_grep()<cr>", { silent = true })
 keymap('n', '<leader><leader>b', "<cmd>lua require('telescope.builtin').buffers()<cr>", { silent = true })
