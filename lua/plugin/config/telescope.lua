@@ -8,16 +8,22 @@ keymap('n', '<leader><leader>b', "<cmd>lua require('telescope.builtin').buffers(
 
 -- You dont need to set any of these options. These are the default ones. Only
 -- the loading is important
-require('telescope').setup {
-    extensions = {
-        fzy_native = {
-            override_generic_sorter = false,
-            override_file_sorter = true,
-        }
+local status_ok, telescope = pcall(require, "packer")
+
+if not status_ok then
+    return
+end
+
+telescope.setup {
+extensions = {
+    fzy_native = {
+        override_generic_sorter = false,
+        override_file_sorter = true,
     }
+}
 }
 
 -- To get fzf loaded and working with telescope, you need to call
 -- load_extension, somewhere after setup function:
-require('telescope').load_extension('fzy_native')
-require('telescope').load_extension('lsp_handlers')
+telescope.load_extension('fzy_native')
+telescope.load_extension('lsp_handlers')
