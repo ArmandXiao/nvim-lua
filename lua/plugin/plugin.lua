@@ -92,17 +92,17 @@ packer.startup(function()
       -- sudo Pacman -S ctags
   }
 
-  use 'liuchengxu/vim-which-key'
+  --use 'liuchengxu/vim-which-key'
 
   -- * Navigation * --
-  use {
-  'phaazon/hop.nvim',
-  branch = 'v1', -- optional but strongly recommended
-  config = function()
-    -- you can configure Hop the way you like here; see :h hop-config
-    require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-  end
-}
+  --use {
+      --'phaazon/hop.nvim',
+      --branch = 'v1', -- optional but strongly recommended
+      --config = function()
+        ---- you can configure Hop the way you like here; see :h hop-config
+        --require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+      --end
+  --}
   --use 'ggandor/lightspeed.nvim'
   --use 'easymotion/vim-easymotion'
 
@@ -124,11 +124,13 @@ packer.startup(function()
     requires = { {'nvim-lua/plenary.nvim'} },
     event="VimEnter"    -- lazyload
   }
+
   use {
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons',
     config = function() require'nvim-tree'.setup {} end
   }
+
   use {'nvim-telescope/telescope-fzy-native.nvim'}  -- fzy, not fzf, be careful
   use {'gbrlsnchs/telescope-lsp-handlers.nvim'}     -- telescope: extension: lsp-handlers
 
@@ -142,7 +144,7 @@ packer.startup(function()
   use 'neovim/nvim-lspconfig'
   use 'kabouzeid/nvim-lspinstall'
   --use 'glepnir/lspsaga.nvim'
-  use 'mfussenegger/nvim-jdtls' -- java lsp
+  --use 'mfussenegger/nvim-jdtls' -- java lsp
 
   use {   -- auto compeletion
     'hrsh7th/nvim-cmp',
@@ -172,7 +174,7 @@ packer.startup(function()
   }
 
   -- debugger
-  use 'puremourning/vimspector'
+  --use 'puremourning/vimspector'
 
   -- Snippet --
   use 'honza/vim-snippets'
@@ -216,8 +218,8 @@ require('plugin.config.formatter.setup')
 
 -- * Hop * --
 --require'hop'.setup()
-keymap('n', 'f', ':HopChar2<CR>', { silent = true })
-keymap('n', 'F', ':HopPattern<CR>', { silent = true })
+--keymap('n', 'f', ':HopChar2<CR>', { silent = true })
+--keymap('n', 'F', ':HopPattern<CR>', { silent = true })
 
 -- * NerdTree * --
 --keymap('n', '<leader>f', ":NERDTreeToggle<CR>", { noremap = true, silent = true })
@@ -226,7 +228,7 @@ keymap('n', 'F', ':HopPattern<CR>', { silent = true })
 keymap('n', '<leader>F', ":TagbarToggle<CR>", { noremap = true, silent = true })
 
 -- * Nvim-tree * --
-keymap('n', '<leader>f', ":NvimTreeToggle<CR>", { noremap = true, silent = true })
+keymap('n', '<leader>f', ":NvimTreeToggle<CR>", { noremap = true})
 
 -- * Telescope * --
 --require('plugin.config.telescope')

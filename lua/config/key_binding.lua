@@ -4,6 +4,7 @@ local keymap = vim.api.nvim_set_keymap
 local noremap_true = { noremap = true }
 
 --- *** KEYBOARD *** ---
+keymap('n', '<space>', '<nop>', {noremap = true})
 vim.g.mapleader = ' '
 
 -- ** Navigation ** --
