@@ -25,7 +25,7 @@ function CompileRun()
         exec("sp")
         exec("term python3 %")
     -- rlanguage
-    elseif vim.bo.filetype == 'R' or vim.bo.filetype == 'r' then
+    elseif vim.bo.filetype == ('R' or 'r') then
         exec("set splitbelow")
         exec("sp")
         exec("term Rscript %")
