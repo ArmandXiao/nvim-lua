@@ -55,21 +55,28 @@ packer.init({
 packer.reset()
 
 ---- **** Plugins **** ----
-packer.startup(function()
+require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
   -- ** Optimazition ** --
   use {'lewis6991/impatient.nvim'}
 
   -- ** apperance ** --
+  --use {
+    --'glepnir/galaxyline.nvim',
+    --branch = 'main',
+    ----your statusline
+    --config = function() require('plugin.config.galaxyline.eviline') end,
+    ----some optional icons
+    --requires = {'kyazdani42/nvim-web-devicons', opt = true}
+  --}
+
   use {
-  'glepnir/galaxyline.nvim',
-    branch = 'main',
-    --your statusline
-    config = function() require('plugin.config.galaxyline.eviline') end,
-    --some optional icons
-    requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    'nvim-lualine/lualine.nvim',
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function() require('lualine').setup() end
   }
+
   --use 'vim-airline/vim-airline' -- status line
   --use 'vim-airline/vim-airline-themes'
   use {
@@ -108,10 +115,12 @@ packer.startup(function()
 
   use 'preservim/nerdcommenter' -- lazy commenter
   use 'junegunn/vim-peekaboo' -- check buffers
+
   use {
     -- requires package ripgrep 11.0.0+ or ag
     'pechorin/any-jump.vim'
   }
+
   --use 'rhysd/vim-clang-format'
   use 'mhartington/formatter.nvim'  -- require .clang-formatter, can download throught python -m install pip clang-format
 
@@ -122,7 +131,6 @@ packer.startup(function()
   use {
     'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim'} },
-    event="VimEnter"    -- lazyload
   }
 
   use {
@@ -186,10 +194,10 @@ packer.startup(function()
   end
 
 end)
-
 ---- **** Configurations **** ----
 local keymap = vim.api.nvim_set_keymap
 local unmap = vim.api.nvim_del_keymap
+vim.g.mapleader = ' '   -- Important!!! since Plugin is read before config..
 
 -- * which key * --
 require('plugin.config.whichkey')
@@ -231,7 +239,7 @@ keymap('n', '<leader>F', ":TagbarToggle<CR>", { noremap = true, silent = true })
 keymap('n', '<leader>f', ":NvimTreeToggle<CR>", { noremap = true})
 
 -- * Telescope * --
---require('plugin.config.telescope')
+require('plugin.config.telescope')
 
 -- * Any-Jump * --
 keymap('n', '<leader>j', ":AnyJump<CR>", { noremap = true, silent = true })
