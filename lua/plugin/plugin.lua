@@ -113,7 +113,9 @@ require('packer').startup(function()
   --use 'ggandor/lightspeed.nvim'
   --use 'easymotion/vim-easymotion'
 
-  use 'preservim/nerdcommenter' -- lazy commenter
+  --use 'preservim/nerdcommenter' -- lazy commenter
+  use 'terrortylor/nvim-comment'
+
   use 'junegunn/vim-peekaboo' -- check buffers
 
   use {
@@ -217,8 +219,13 @@ keymap('n', '<S-Tab>', ':BufferLineCyclePrev<CR>', { noremap = true })
 require('nightfox').load("duskfox")
 
 -- * NerdCommeter * --
-keymap('n', '?', ':call nerdcommenter#Comment(0, "toggle")<CR>', { silent = true })
-keymap('v', '?', ':call nerdcommenter#Comment(0, "toggle")<CR>', { silent = true })
+--keymap('n', '?', ':call nerdcommenter#Comment(0, "toggle")<CR>', { silent = true })
+--keymap('v', '?', ':call nerdcommenter#Comment(0, "toggle")<CR>', { silent = true })
+
+-- * nvim-comment * --
+require('nvim_comment').setup()
+keymap('n', '?', ':CommentToggle<CR>', { silent = true })
+keymap('v', '?', ':CommentToggle<CR>', { silent = true })
 
 -- * formatter.nvim * --
 --keymap('n', '<A-K>', ':Format<CR>', {noremap = true, silent = true})
