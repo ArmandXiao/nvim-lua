@@ -51,6 +51,7 @@ vim.api.nvim_exec(
 augroup CursorLine
   au!
   au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  au VimEnter,WinEnter,BufWinEnter * set paste
   au WinLeave * setlocal nocursorline
 augroup END
 ]],

@@ -86,7 +86,8 @@ require('packer').startup(function()
 
   --use 'ful1e5/onedark.nvim' -- theme
   --use '/onedark.nvim' -- theme
-  use 'EdenEast/nightfox.nvim'
+  --use 'EdenEast/nightfox.nvim'
+  use "projekt0n/github-nvim-theme"
 
 
   -- ** Functions ** --
@@ -98,6 +99,8 @@ require('packer').startup(function()
       -- require ctags in path
       -- sudo Pacman -S ctags
   }
+
+  use { 'christianfosli/wsl-copy' }
 
   --use 'liuchengxu/vim-which-key'
 
@@ -149,6 +152,8 @@ require('packer').startup(function()
       'plasticboy/vim-markdown',
       requires = 'godlygeek/tabular'
   }
+
+  use { 'ellisonleao/glow.nvim' }
 
   -- ** LSP ** --
   use 'neovim/nvim-lspconfig'
@@ -207,7 +212,8 @@ require('plugin.config.whichkey')
 -- * Buffer line* ---
 require("bufferline").setup{
     options = {
-        separator_style = "slant",
+        enforce_regular_tabs = true,
+        separator_style = "thin",
         name_formatter = nil
     }
 }
@@ -216,7 +222,11 @@ keymap('n', '<Tab>', ':BufferLineCycleNext<CR>', { noremap = true })
 keymap('n', '<S-Tab>', ':BufferLineCyclePrev<CR>', { noremap = true })
 
 --require('onedark').setup()  -- one dark theme
-require('nightfox').load("duskfox")
+--require('nightfox').load("duskfox")
+
+require("github-theme").setup({
+    theme_style = "dark_default"
+})
 
 -- * NerdCommeter * --
 --keymap('n', '?', ':call nerdcommenter#Comment(0, "toggle")<CR>', { silent = true })
@@ -230,6 +240,10 @@ keymap('v', '?', ':CommentToggle<CR>', { silent = true })
 -- * formatter.nvim * --
 --keymap('n', '<A-K>', ':Format<CR>', {noremap = true, silent = true})
 require('plugin.config.formatter.setup')
+
+-- * Wsl-copy * --
+keymap('n', '<leader>y', ":Wsly<CR>", { noremap = true, silent = true })
+keymap('v', '<leader>y', ":Wsly<CR>", { noremap = true, silent = true })
 
 -- * Hop * --
 --require'hop'.setup()

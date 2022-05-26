@@ -3,7 +3,6 @@ local keymap = vim.api.nvim_set_keymap
 local exec = vim.api.nvim_command
 
 function CompileRun()
-    exec("w")
     if vim.bo.filetype == 'c' then
         exec("!g++ % -o %<")
         exec("!time ./%<")
