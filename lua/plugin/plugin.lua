@@ -212,7 +212,7 @@ require('plugin.config.whichkey')
 -- * Buffer line* ---
 require("bufferline").setup{
     options = {
-        enforce_regular_tabs = true,
+        --enforce_regular_tabs = true,
         separator_style = "thin",
         name_formatter = nil
     }
