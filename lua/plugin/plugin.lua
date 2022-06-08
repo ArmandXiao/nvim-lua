@@ -194,6 +194,12 @@ require('packer').startup(function()
   -- Snippet --
   use 'honza/vim-snippets'
 
+  -- Code Action Menu--
+  use {
+      'weilbith/nvim-code-action-menu',
+      cmd = 'CodeActionMenu',
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
@@ -277,3 +283,6 @@ require('lsp.lsp-signature-config')
 
 --- ** treesitter ** ---
 require('plugin.config.treesitter.setup')
+
+--- ** Code Action Menu ** ---
+keymap('n', '<leader>ca', ":CodeActionMenu<CR>", { noremap = true, silent = true })

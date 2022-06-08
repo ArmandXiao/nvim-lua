@@ -18,7 +18,7 @@ keymap('v', 'L', '$', {noremap = true})
 keymap('n', 'H', '^', {noremap = true})
 keymap('v', 'H', '^', {noremap = true})
 
-keymap('n', '*', ":nohl<CR>" , {noremap = true, silent = true})
+keymap('n', '<leader>n', ":nohl<CR>" , {noremap = true, silent = true})
 
 -- ** Operations ** --
 keymap('i', 'jk', '<ESC>', {}) -- escape
