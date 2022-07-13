@@ -4,8 +4,8 @@ local exec = vim.api.nvim_command
 
 function CompileRun()
     if vim.bo.filetype == 'c' then
-        exec("!g++ % -o %<")
-        exec("!time ./%<")
+        exec("!gcc % && ./a.out")
+        exec("!time ./%")
     elseif vim.bo.filetype == 'cpp' then
         exec("set splitbelow")
         exec("!g++ % -Wall -o %<")
